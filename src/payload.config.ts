@@ -11,18 +11,20 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Blogs } from './collections/Blogs'
 import { Categories } from './collections/Categories'
+import { Jobs } from './collections/Jobs'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+  serverURL: process.env.SERVER_URL,
   admin: {
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Blogs, Categories],
+  collections: [Users, Media, Blogs, Categories, Jobs],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -36,4 +38,6 @@ export default buildConfig({
     payloadCloudPlugin(),
     // storage-adapter-placeholder
   ],
+  // csrf: ['http://localhost:3001', 'https://edpi.ai'],
+  cors: '*',
 })
