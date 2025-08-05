@@ -50,5 +50,4 @@ export default buildConfig({
   ],
   // csrf: ['http://localhost:3001', 'https://edpi.ai'],
   cors: '*',
-  csrf: false
 })
