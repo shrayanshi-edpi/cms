@@ -49,5 +49,13 @@ export default buildConfig({
     // storage-adapter-placeholder
   ],
   // csrf: ['http://localhost:3001', 'https://edpi.ai'],
-  cors: '*',
+  cors: [
+    'http://localhost:3001',
+    'https://edpi.ai',
+    'https://payload-cms-edpi.vercel.app',
+  ],
+  csrf: [
+    'http://localhost:3001',
+    'https://edpi.ai',
+  ],
 })
